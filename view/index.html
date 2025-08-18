@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto ONGs - Doação</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">🌱 Projeto meio Ambiente</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="ong1.html">SOS Mata Atlântica</a></li>
+                <li class="nav-item"><a class="nav-link" href="ong2.html">Instituto Terra</a></li>
+                <li class="nav-item"><a class="nav-link" href="ong3.html">Amazônia Sustentável</a></li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo principal -->
+    <div class="container my-5">
+        <h1 class="text-center mb-4">🌍 Projeto de Apoio às ONGs de Meio Ambiente</h1>
+        
+        <div class="row align-items-center">
+        <!-- Coluna Esquerda (Texto) -->
+        <div class="col-md-6">
+            <p class="lead">
+                Nosso projeto tem como objetivo apoiar organizações não governamentais que 
+                trabalham em prol do meio ambiente. Acreditamos que a preservação da natureza 
+                é essencial para garantir um futuro sustentável para todos.
+            </p>
+            <p>
+                Aqui você poderá conhecer melhor três ONGs de destaque: 
+                <strong>SOS Mata Atlântica</strong>, que atua no reflorestamento; 
+                <strong>Instituto Terra</strong>, que protege áreas nativas; 
+                e <strong>Amazônia Sustentável</strong>, que luta pela preservação marinha.
+            </p>
+            <p>
+                Por meio desta plataforma, será possível visualizar os impactos de cada ONG 
+                através de gráficos, conhecer histórias de apoiadores e, se desejar, contribuir 
+                com doações para fortalecer suas causas.
+            </p>
+        </div>
+
+    <!-- Coluna Direita (Gráfico) -->
+    <div class="col-md-6 text-center">
+            <h4>Impacto das ONGs</h4>
+            <canvas id="grafico" width="600" height="400"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carrossel de apoiadores -->
+    <div class="container my-5">
+        <h3 class="text-center mb-4">Apoiadores</h3>
+
+        <div id="carrosselApoiadores" class="carousel slide" data-bs-ride="carousel">
+            <div id="carousel" class="carousel-inner text-center">
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carrosselApoiadores" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#carrosselApoiadores" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </div>
+
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundação SOS Mata Atlântica</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .grafico-pequeno { max-width: 300px; }
+    </style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">🌳 SOS Mata Atlântica</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="ong1.html">SOS Mata Atlântica</a></li>
+                <li class="nav-item"><a class="nav-link" href="ong2.html">Instituto Terra</a></li>
+                <li class="nav-item"><a class="nav-link" href="ong3.html">Amazônia Sustentável</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Conteúdo -->
+<div class="container my-5">
+    <h1 class="text-center text-success">Fundação SOS Mata Atlântica</h1>
+    <p class="lead text-center">
+        A Fundação SOS Mata Atlântica é uma ONG brasileira que há mais de 35 anos atua na proteção da Mata Atlântica. Desenvolve projetos de restauração florestal, monitoramento ambiental, educação e mobilização social, promovendo um futuro sustentável.
+    </p>
+
+    <!-- Nossa História com Logo -->
+    <div class="row my-5 align-items-center">
+        <div class="col-md-8">
+            <h3 class="text-success text-start">Nossa História</h3>
+            <p class="text-start">
+                A Fundação SOS Mata Atlântica é uma das organizações ambientais mais reconhecidas do Brasil, com mais de 35 anos de atuação. Surgida em 20 de setembro de 1986, seu objetivo é inspirar e engajar a sociedade na defesa da Mata Atlântica, um dos biomas mais ricos em biodiversidade e, ao mesmo tempo, um dos mais ameaçados.
+            </p>
+            <p class="text-start">
+                Entre suas principais frentes estão o reflorestamento com espécies nativas, o monitoramento da qualidade da água e do desmatamento, a defesa de políticas públicas ambientais e a educação para a sustentabilidade. Graças a seu trabalho, já foram plantadas mais de 40 milhões de árvores, restaurados ecossistemas em centenas de municípios e mobilizadas milhões de pessoas em campanhas de conscientização.
+            </p>
+            <p class="text-start">
+                Ao apoiar a SOS Mata Atlântica, você contribui diretamente para a preservação de florestas, rios e espécies que fazem parte do patrimônio natural do Brasil.
+            </p>
+        </div>
+        <div class="col-md-4 text-center">
+            <img src="imagens/logo1.png" alt="Logo Fundação SOS Mata Atlântica" class="img-fluid">
+        </div>
+    </div>
+
+    <div class="row my-5">
+        <div class="col-md-6 text-start">
+            <h3 class="text-success mb-2">Principais Impactos</h3>
+            <ul class="mb-0 ps-3 fs-5">
+                <li>🌱 Mais de <b>40 milhões</b> de árvores nativas plantadas.</li>
+                <li>👥 <b>3.500 voluntários</b> monitorando rios em 17 estados.</li>
+                <li>🏞️ Apoio a <b>500+</b> unidades de conservação.</li>
+                <li>🌍 <b>550 municípios</b> com áreas restauradas.</li>
+                <li>📊 Monitoramento em <b>3.429 municípios</b> com desmatamento.</li>
+                <li>📢 <b>4 milhões</b> de pessoas em campanhas e educação ambiental.</li>
+            </ul>
+        </div>
+        <div class="col-md-6 d-flex flex-column align-items-center">
+            <h3 class="text-center">Árvores plantadas nos últimos anos</h3>
+            <canvas id="grafico" class="grafico-pequeno"></canvas>
+        </div>
+    </div>
+
+    <div class="my-5 text-center">
+        <h3 class="text-success">Contato Oficial</h3>
+        <p>📞 Telefone: +55 (11) 3262-4088</p>
+        <p>📍 Endereço: Rodovia Marechal Rondon, Km 118, Bairro Porunduva - Itu/SP, CEP 13312-000</p>
+        <p>✉️ E-mail: <a href="mailto:info@sosma.org.br">info@sosma.org.br</a></p>
+    </div>
+
+    <!-- Botão Doação -->
+    <div class="text-center my-5">
+        <button class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#modalPrimeiraDoacao">Fazer Doação</button>
+    </div>
+</div>
+
+<!-- Modal Primeira Doação -->
+<div class="modal fade" id="modalPrimeiraDoacao" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Primeira Doação?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center">
+                <p>É a sua primeira vez doando?</p>
+                <div class="d-flex justify-content-around">
+                    <button type="button" class="btn btn-success" id="btnSim">Sim</button>
+                    <button type="button" class="btn btn-secondary" id="btnNao">Não</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Doação Completa -->
+<div class="modal fade" id="modalDoacao" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Doação para SOS Mata Atlântica</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formDoacao" data-id="1">
+                    <div class="mb-3">
+                        <label class="form-label">Nome</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">CPF</label>
+                        <input type="text" class="form-control" placeholder="000.000.000-00" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" placeholder="seuemail@exemplo.com" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Valor da Doação (R$)</label>
+                        <input type="number" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Confirmar Doação</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Doação Simples (CPF + Valor) -->
+<div class="modal fade" id="modalDoacaoSimples" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Doação</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formDoacaoSimples" data-id="1">
+                    <div class="mb-3">
+                        <label class="form-label">CPF</label>
+                        <input type="text" class="form-control" placeholder="000.000.000-00" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Valor da Doação (R$)</label>
+                        <input type="number" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Confirmar Doação</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/ong1.js"></script>
+<script src="js/forms.js"></script>
+</body>
+</html>
+
+
+
+

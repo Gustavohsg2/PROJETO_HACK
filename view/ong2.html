@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instituto Terra</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .grafico-pequeno { max-width: 250px; }
+    </style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">🌱 Instituto Terra</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="ong1.html">SOS Mata Atlântica</a></li>
+                <li class="nav-item"><a class="nav-link" href="ong2.html">Instituto Terra</a></li>
+                <li class="nav-item"><a class="nav-link" href="ong3.html">Amazônia Sustentável</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container my-5">
+    <h1 class="text-center text-success">Instituto Terra</h1>
+    <p class="lead text-center">
+        O Instituto Terra atua na recuperação de ecossistemas degradados da Mata Atlântica no Vale do Rio Doce (MG), especialmente na Fazenda Bulcão (RPPN), 
+        por meio de reflorestamento, educação ambiental e participação comunitária.
+    </p>
+
+    <!-- Nossa História -->
+    <div class="row my-5 align-items-center">
+        <div class="col-md-8">
+            <h3 class="text-success text-start">Nossa História</h3>
+            <p class="text-start">O Instituto Terra é reconhecido nacionalmente por suas iniciativas de recuperação florestal e educação ambiental. Desde sua criação, vem transformando áreas degradadas em reservas ecológicas, promovendo o reflorestamento e conscientizando a comunidade sobre a importância da conservação.</p>
+            <p class="text-start">Entre suas ações estão a produção de mudas nativas, a restauração de ecossistemas e a implementação de programas de educação ambiental. Graças a seu trabalho, milhões de árvores foram plantadas, comunidades foram engajadas e a biodiversidade local foi preservada.</p>
+            <p class="text-start">Usamos o conhecimento adquirido com a restauração ecossistêmica para transformar a bacia do Rio Doce. Aliando a agricultura com a floresta, recuperando nascentes e promovendo educação ambiental para milhares de pessoas.</p>
+        </div>
+        <div class="col-md-4 text-center">
+            <img src="imagens/logo2.png" alt="Logo Instituto Terra" class="img-fluid">
+        </div>
+    </div>
+
+    <!-- Gráficos -->
+    <h2 class="my-5 text-center text-success">Impactos em 2024 - Instituto Terra</h2>
+    <div class="row w-100 mb-4">
+        <div class="col-4 d-flex flex-column align-items-center">
+            <h5 class="text-center">🌱 Restauração Ecossistêmica</h5>
+            <canvas id="graficoRestauracao" class="grafico-pequeno"></canvas>
+        </div>
+        <div class="col-4 d-flex flex-column align-items-center">
+            <h5 class="text-center">💧 Desenvolvimento Rural Sustentável</h5>
+            <canvas id="graficoDesenvolvimento" class="grafico-pequeno"></canvas>
+        </div>
+        <div class="col-4 d-flex flex-column align-items-center">
+            <h5 class="text-center">📚 Educação Ambiental</h5>
+            <canvas id="graficoEducacao" class="grafico-pequeno"></canvas>
+        </div>
+    </div>
+
+    <!-- Principais Impactos -->
+    <div class="my-5 text-center">
+        <h3 class="text-success mb-2">Principais Impactos</h3>
+        <ul class="mb-0 ps-3 fs-5" style="display: inline-block; text-align: left; padding-left: 1.5rem;">
+            <li>🌱 Cerca de <b>2 milhões</b> de árvores plantadas.</li>
+            <li>🌿 Produção anual de milhares de mudas de espécies nativas.</li>
+            <li>🏞️ Recuperação da Fazenda Bulcão, transformada em reserva de floresta.</li>
+        </ul>
+    </div>
+
+    <!-- Contato -->
+    <div class="my-5 text-center">
+        <h3 class="text-success">Contato Oficial</h3>
+        <p>📞 Telefone: (33) 3267-2025</p>
+        <p>📍 Endereço: Fazenda Bulcão, s/n, Zona Rural, Aimorés, MG, CEP 35200-000</p>
+        <p>✉️ E-mail: <a href="mailto:institutoterra@institutoterra.org">institutoterra@institutoterra.org</a></p>
+    </div>
+
+    <!-- Botão Doação -->
+    <div class="text-center my-5">
+        <button class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#modalPrimeiraDoacao">Fazer Doação</button>
+    </div>
+</div>
+
+<!-- Modal Primeira Doação -->
+<div class="modal fade" id="modalPrimeiraDoacao" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Primeira Doação?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center">
+                <p>É a sua primeira vez doando?</p>
+                <div class="d-flex justify-content-around">
+                    <button type="button" class="btn btn-success" id="btnSim">Sim</button>
+                    <button type="button" class="btn btn-secondary" id="btnNao">Não</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Doação Completa -->
+<div class="modal fade" id="modalDoacao" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Doação para FAS</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formDoacao" data-id="2">
+                    <div class="mb-3">
+                        <label class="form-label">Nome</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">CPF</label>
+                        <input type="text" class="form-control" placeholder="000.000.000-00" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" placeholder="seuemail@exemplo.com" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Valor da Doação (R$)</label>
+                        <input type="number" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Confirmar Doação</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Doação Simples (só CPF + valor) -->
+<div class="modal fade" id="modalDoacaoSimples" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Doação</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formDoacaoSimples" data-id="2">
+                    <div class="mb-3">
+                        <label class="form-label">CPF</label>
+                        <input type="text" class="form-control" placeholder="000.000.000-00" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Valor da Doação (R$)</label>
+                        <input type="number" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Confirmar Doação</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/ong2.js"></script>
+<script src="js/forms.js"></script>
+
+</body>
+</html>
+

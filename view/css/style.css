@@ -1,0 +1,46 @@
+/*Botões do Carrosel*/
+.carousel-control-prev,
+.carousel-control-next {
+    width: 50px;
+    height: 50px;
+    background-color: #28a745; 
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.9;
+}
+.carousel-control-prev {
+    left: 350px;
+}
+.carousel-control-next {
+    right: 350px; 
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: #218838; 
+    opacity: 1;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1);
+}
+
+p,h5,h3,h4,li {
+    color: black;
+}
+
+.move-direita {
+    display: block;      
+    margin-left: auto;  
+    margin-right: 0;
+    margin-bottom: 10px; 
+}
+
+.grafico-pequeno {
+    max-width: 450px;
+    max-height: 450px;
+    width: 100%;
+    height: auto;
+}
