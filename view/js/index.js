@@ -1,5 +1,9 @@
 const ctx = document.getElementById('grafico');
 
+const data_1 = await carregarDoações(1);
+const data_2 = await carregarDoações(2);
+const data_3 = await carregarDoações(3);
+
 async function pegarDados(cpf){
   try {
     const resposta = await fetch(`/doadores/dados/${cpf}`);
@@ -23,7 +27,7 @@ async function carregarDoações(id) {
 
 async function carregarValores(id) {
   try {
-    const data = await carregarDoações(id); // faltava await
+    const data = await carregarDoações(id); 
     let valor_total = 0;
     data.forEach(doador => {
       valor_total += doador.valor;
@@ -67,37 +71,32 @@ async function criarGrafico() {
   });
 }
 
-async function carregarApoiador(item, index){
-  const carousel = document.getElementById("carousel");
-  //const dado = await pegarDados(item.cpf);
-  const valor = `R$ ${item.valor.toFixed(2)}`;
-  const dataFormatada = new Date(item.data).toLocaleDateString("pt-BR");
-  //const nome = `${dado.dados.nome}`;
+//async function carregarApoiador(item, index){
+//  const carousel = document.getElementById("carousel");
+//  const valor = `R$ ${item.valor.toFixed(2)}`;
+//  const dataFormatada = new Date(item.data).toLocaleDateString("pt-BR");
 
-  const div = document.createElement("div");
-  div.className = `carousel-item ${index === 0 ? "active" : ""}`;
-  div.innerHTML = `
-    <p>${valor} - ${dataFormatada}</p>`;
-  
-  carousel.appendChild(div); // não limpa mais aqui
-}
+//  const div = document.createElement("div");
+//  div.className = `carousel-item ${index === 0 ? "active" : ""}`;
+//  div.innerHTML = `
+//    <p>${valor} - ${dataFormatada}</p>`;
+//  
+//  carousel.appendChild(div); // não limpa mais aqui
+//}
 
-async function carregar() {
-  try {
-    const data_1 = await carregarDoações(1);
-    const data_2 = await carregarDoações(2);
-    const data_3 = await carregarDoações(3);
+//async function carregar() {
+//  try {
+//
+//    const carousel = document.getElementById("carousel");
+//    carousel.innerHTML = ""; // limpa só uma vez aqui
+//
+//    [...data_1, ...data_2, ...data_3].forEach((item, index) => {
+//      carregarApoiador(item, index);
+//    });
+//  } catch (err) {
+//    console.error("Erro ao carregar doações:", err);
+//  }
+//}
 
-    const carousel = document.getElementById("carousel");
-    carousel.innerHTML = ""; // limpa só uma vez aqui
-
-    [...data_1, ...data_2, ...data_3].forEach((item, index) => {
-      carregarApoiador(item, index);
-    });
-  } catch (err) {
-    console.error("Erro ao carregar doações:", err);
-  }
-}
-
-carregar();
+//carregar();
 criarGrafico();
