@@ -22,7 +22,6 @@ class Banco {
         if (Banco.CLIENT) {
             await Banco.CLIENT.close();
             Banco.CLIENT = null;
-            console.log("Conexão Fechada");
         }
     }
 
