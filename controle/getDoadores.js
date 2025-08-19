@@ -19,7 +19,7 @@ async function getDoadores(req, res) {
       }
     }
     try{
-      const doadoresAprovados = await Banco.findAll("Doações", { status: "approved", projetoId: Number(req.params.id) });
+      const doadoresAprovados = await Banco.findAll("Doações", { status: "approved" });
       res.json(doadoresAprovados);
     }catch{
       res.status(200).json({ valor: 0})

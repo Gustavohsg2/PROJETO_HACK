@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
   res.json({ message: "API rodando" });
 });
 
-app.get("/doadores/:id", getDoadores);
+app.get("/doadores/", getDoadores);
 app.get("/doadores/dados/:cpf", getDoadorDados);
 app.post("/pagamento/novo/:id", postDoadorNovo);
 app.post("/pagamento/pix/:id", postPix);

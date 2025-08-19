@@ -10,9 +10,9 @@ async function pegarDados(cpf){
     return 0;
   }
 }
-async function carregarDoações(id) {
+async function carregarDoações() {
   try {
-    const resposta = await fetch("/doadores/" + id);
+    const resposta = await fetch("/doadores/");
     const data = await resposta.json();
     return data;
   } catch (erro) {
@@ -21,24 +21,26 @@ async function carregarDoações(id) {
   }
 }
 
-async function carregarValores(id) {
+async function carregarValores() {
   try {
-    const data = await carregarDoações(id); 
-    let valor_total = 0;
+    const data = await carregarDoações(); // já retorna aquele array inteiro
+    const totais = {};
     data.forEach(doador => {
-      valor_total += doador.valor;
+      if (!totais[doador.projetoId]) {
+        totais[doador.projetoId] = 0;
+      }
+      totais[doador.projetoId] += doador.valor;
     });
-    return valor_total;
+
+    return totais;
   } catch (erro) {
     console.error("Erro ao buscar valores:", erro);
-    return 0;
+    return {};
   }
 }
 
 async function criarGrafico() {
-  const valor1 = await carregarValores(1);
-  const valor2 = await carregarValores(2);
-  const valor3 = await carregarValores(3);
+  const totais = await carregarValores();
 
   new Chart(ctx, {
     type: 'line',
@@ -46,7 +48,11 @@ async function criarGrafico() {
       labels: ['SOS Mata Atlântica', 'Instituto Terra', 'Amazônia Sustentável'],
       datasets: [{
         label: 'Valor total das doações',
-        data: [valor1, valor2, valor3],
+        data: [
+          totais[1] || 0,
+          totais[2] || 0,
+          totais[3] || 0
+        ],
         borderColor: '#28a745',
         backgroundColor: 'rgba(40, 167, 69, 0.2)',
         fill: true,
