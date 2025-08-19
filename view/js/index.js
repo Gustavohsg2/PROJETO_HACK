@@ -23,7 +23,8 @@ async function carregarDoações() {
 
 async function carregarValores() {
   try {
-    const data = await carregarDoações(); // já retorna aquele array inteiro
+    const data = await carregarDoações(); 
+    carregar(data);
     const totais = {};
     data.forEach(doador => {
       if (!totais[doador.projetoId]) {
@@ -73,32 +74,32 @@ async function criarGrafico() {
   });
 }
 
-//async function carregarApoiador(item, index){
-//  const carousel = document.getElementById("carousel");
-//  const valor = `R$ ${item.valor.toFixed(2)}`;
-//  const dataFormatada = new Date(item.data).toLocaleDateString("pt-BR");
+async function carregarApoiador(item, index) {
+  const carousel = document.getElementById("carousel");
+  const valor = `R$ ${item.valor.toFixed(2)}`;
+  const dataFormatada = new Date(item.data).toLocaleDateString("pt-BR");
 
-//  const div = document.createElement("div");
-//  div.className = `carousel-item ${index === 0 ? "active" : ""}`;
-//  div.innerHTML = `
-//    <p>${valor} - ${dataFormatada}</p>`;
-//  
-//  carousel.appendChild(div); // não limpa mais aqui
-//}
+  const div = document.createElement("div");
+  div.className = `carousel-item ${index === 0 ? "active" : ""}`;
+  div.innerHTML = `
+    <p>${valor} - ${dataFormatada}</p>
+    <small>Projeto: ${item.projetoId}</small>
+  `;
 
-//async function carregar() {
-//  try {
-//
-//    const carousel = document.getElementById("carousel");
-//    carousel.innerHTML = ""; // limpa só uma vez aqui
-//
-//    [...data_1, ...data_2, ...data_3].forEach((item, index) => {
-//      carregarApoiador(item, index);
-//    });
-//  } catch (err) {
-//    console.error("Erro ao carregar doações:", err);
-//  }
-//}
+  carousel.appendChild(div);
+}
 
-//carregar();
+async function carregar(data) {
+  try {
+    const carousel = document.getElementById("carousel");
+    carousel.innerHTML = "";
+
+    data.forEach((item, index) => {
+      carregarApoiador(item, index);
+    });
+  } catch (err) {
+    console.error("Erro ao carregar doações:", err);
+  }
+}
+
 criarGrafico();
