@@ -13,11 +13,13 @@ async function postDoadorNovo(req, res) {
     const doador = await Banco.findOne("Doadores", { cpf: cpf });
     if (doador == null){
       const { nome, email, valor, paymentId } = req.body;
+      // Adiciona um novo doador
       const novo_doador = await Banco.insertOne("Doadores", {
         nome: nome,
         cpf: cpf,
         email: email
       })
+      // Adiciona uma nova doação no Banco de Dados
       const nova_doação = await Banco.insertOne("Doações", {
         projetoId: Number(projetoId),
         paymentId: paymentId,
