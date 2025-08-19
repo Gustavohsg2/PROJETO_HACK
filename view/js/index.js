@@ -1,9 +1,5 @@
 const ctx = document.getElementById('grafico');
 
-const data_1 = await carregarDoações(1);
-const data_2 = await carregarDoações(2);
-const data_3 = await carregarDoações(3);
-
 async function pegarDados(cpf){
   try {
     const resposta = await fetch(`/doadores/dados/${cpf}`);
