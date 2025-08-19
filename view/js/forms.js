@@ -18,7 +18,7 @@ function validarCPF(cpf) {
 }
 async function criarDoadorNovo(projetoId, dados) {
   try {
-    const resposta = await fetch(`http://localhost:3000/pagamento/novo/${projetoId}`, {
+    const resposta = await fetch(`/pagamento/novo/${projetoId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -40,7 +40,7 @@ async function criarDoadorNovo(projetoId, dados) {
 }
 async function criarDoadorVelho(projetoId, dados) {
   try {
-    const resposta = await fetch(`http://localhost:3000/pagamento/velho/${projetoId}`, {
+    const resposta = await fetch(`/pagamento/velho/${projetoId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -62,7 +62,7 @@ async function criarDoadorVelho(projetoId, dados) {
 }
 async function pegarDados(cpf){
   try {
-    const resposta = await fetch(`http://localhost:3000/doadores/dados/${cpf}`);
+    const resposta = await fetch(`/doadores/dados/${cpf}`);
     const data = await resposta.json();
     return data;
   } catch (erro) {
@@ -73,7 +73,7 @@ async function pegarDados(cpf){
 async function gerarPagamento(ProjetoId, dados, method) {
   try {
     console.log(dados);
-    const resposta = await fetch(`http://localhost:3000/pagamento/pix/${ProjetoId}`, {
+    const resposta = await fetch(`/pagamento/pix/${ProjetoId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

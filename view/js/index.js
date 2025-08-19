@@ -2,7 +2,7 @@ const ctx = document.getElementById('grafico');
 
 async function pegarDados(cpf){
   try {
-    const resposta = await fetch(`http://localhost:3000/doadores/dados/${cpf}`);
+    const resposta = await fetch(`/doadores/dados/${cpf}`);
     const data = await resposta.json();
     return data;
   } catch (erro) {
@@ -12,7 +12,7 @@ async function pegarDados(cpf){
 }
 async function carregarDoações(id) {
   try {
-    const resposta = await fetch("http://localhost:3000/doadores/" + id);
+    const resposta = await fetch("/doadores/" + id);
     const data = await resposta.json();
     return data;
   } catch (erro) {
